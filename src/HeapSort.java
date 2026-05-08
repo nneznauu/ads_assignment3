@@ -2,11 +2,11 @@ public class HeapSort {
     public static void buildMaxHeap(int[] arr) {
         int n = arr.length;
         for (int i = n / 2 - 1; i >= 0; i--) {
-            heapify(arr, n, i);
+            make_heap(arr, n, i);
         }
     }
 
-    public static void heapify(int[] arr, int n, int i) {
+    public static void make_heap(int[] arr, int n, int i) {
         int largest = i;
         int left = 2 * i + 1;
         int right = 2 * i + 2;
@@ -23,7 +23,7 @@ public class HeapSort {
             int swap = arr[i];
             arr[i] = arr[largest];
             arr[largest] = swap;
-            heapify(arr, n, largest);
+            make_heap(arr, n, largest);
         }
     }
 
@@ -32,6 +32,6 @@ public class HeapSort {
         int temp = arr[0];
         arr[0] = arr[n - 1];
         arr[n - 1] = temp;
-        heapify(arr, n - 1, 0);
+        make_heap(arr, n - 1, 0);
     }
 }
